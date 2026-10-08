@@ -1,6 +1,5 @@
 package com.example.navegacao_fluxo_telas.screens
 
-import android.R.attr.onClick
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,13 +16,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun TelaMenu(modifier: Modifier = Modifier){
+fun TelaMenu(
+    modifier: Modifier = Modifier,
+    navController: NavController
+){
 
     Box(
         modifier = modifier
@@ -47,6 +48,7 @@ fun TelaMenu(modifier: Modifier = Modifier){
             verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically),
         ) {
 
+            // Botão de LOGIN
             Button(
                 modifier = modifier.size(width = 200.dp, height = 48.dp),
 
@@ -54,14 +56,15 @@ fun TelaMenu(modifier: Modifier = Modifier){
                     containerColor = Color.White
                 ),
 
-                onClick = {},
                 shape = RoundedCornerShape(16.dp),
+
+                onClick = { navController.navigate("perfil/Lucas/18") },
 
                 )
 
             {
                 Text(
-                    text = "LOGIN",
+                    text = "PERFIL",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Blue
@@ -77,7 +80,7 @@ fun TelaMenu(modifier: Modifier = Modifier){
                     containerColor = Color.White
                 ),
 
-                onClick = {},
+                onClick = { navController.navigate("pedidos?numeroPedido=666")},
                 shape = RoundedCornerShape(16.dp),
 
                 )
@@ -99,7 +102,7 @@ fun TelaMenu(modifier: Modifier = Modifier){
                     containerColor = Color.White
                 ),
 
-                onClick = {},
+                onClick = {navController.navigate("login")},
                 shape = RoundedCornerShape(16.dp),
 
                 )

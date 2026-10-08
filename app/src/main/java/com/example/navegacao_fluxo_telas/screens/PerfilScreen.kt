@@ -12,13 +12,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun TelaPerfil(modifier: Modifier = Modifier){
+fun TelaPerfil(
+    modifier: Modifier = Modifier,
+    navController: NavController,
+    nomeUsuario: String,
+    idade: Int
+    ){
 
     Box(
         modifier = modifier
@@ -28,7 +32,7 @@ fun TelaPerfil(modifier: Modifier = Modifier){
     ) {
 
         Text(
-            text = "PERFIL",
+            text = "PERFIL - ${nomeUsuario} - $idade",
             color = Color.White,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold
@@ -41,7 +45,7 @@ fun TelaPerfil(modifier: Modifier = Modifier){
                 containerColor = Color.White
             ),
 
-            onClick = {},
+            onClick = { navController.navigate("menu")},
             shape = RoundedCornerShape(16.dp),
 
             )

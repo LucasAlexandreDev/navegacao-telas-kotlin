@@ -12,13 +12,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun TelaPedido(modifier: Modifier = Modifier){
+fun TelaPedido(
+    modifier: Modifier = Modifier,
+    navController: NavController,
+    numeroPedido: String
+){
 
     Box(
         modifier = modifier
@@ -28,12 +31,13 @@ fun TelaPedido(modifier: Modifier = Modifier){
     ) {
 
         Text(
-            text = "PEDIDO",
+            text = "PEDIDO - $numeroPedido",
             color = Color.White,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold
         )
 
+        // Botão de VOLTAR - tela menu
         Button(
             modifier = modifier.align(Alignment.Center),
 
@@ -41,7 +45,7 @@ fun TelaPedido(modifier: Modifier = Modifier){
                 containerColor = Color.White
             ),
 
-            onClick = {},
+            onClick = { navController.navigate("menu")},
             shape = RoundedCornerShape(16.dp),
 
             )
